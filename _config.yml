@@ -16,7 +16,7 @@ minimal_mistakes_skin    : "air" # "air", "aqua", "contrast", "dark", "dirt", "n
 
 # Site Settings
 locale                   : "en-US"
-title                    : "go Diegogo"
+title                    : "Go Diego Go"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Daegon Kim"
@@ -32,7 +32,7 @@ words_per_minute         : 200
 comments:
   provider               : "disqus"
   disqus:
-    shortname            : go Diego go
+    shortname            : https-kodaegon-github-io
   discourse:
     server               : # https://meta.discourse.org/t/embedding-discourse-comments-via-javascript/31963 , e.g.: meta.discourse.org
   facebook:
