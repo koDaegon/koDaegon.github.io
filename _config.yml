@@ -109,8 +109,8 @@ analytics:
 author:
   name             : "Daegon Kim"
   avatar           : "/assets/images/profile.jpg"
-  bio              : "New kids on the block in Web Development and adventure Enthuiast"
-  location         : "New York , New York"
+  bio              : "New kid on the block in Web Development and adventure enthusiast"
+  location         : "New York , New York -> Seoul, South Korea"
   email            : "ko.daegonkim@gmail.com"
   links:
     - label: "Email"
@@ -270,7 +270,6 @@ compress_html:
     envs: development
 
 
-# Defaults
 defaults:
   # _posts
   - scope:
