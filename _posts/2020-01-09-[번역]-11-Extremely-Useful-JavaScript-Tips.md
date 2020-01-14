@@ -6,7 +6,7 @@ defaults:
       type: posts
       values:
         layout: single
-        categories: Personal
+        categories: Translation
         author_profile: true
         read_time: true
         comments: true
@@ -94,72 +94,149 @@ connected && login();
 user && user.login();
 ```
 
-### 4. Default Values Using the || Operator
-Today, in ES6, there is the default argument feature. To simulate this feature in old browsers, you can use the || (OR operator) by including the default value as a second parameter to be used.
-If the first parameter returns false, the second one will be used as a default value. See this example:
+### 4. Default Values Using the || Operator ||연산자를 이용해서 변수값을 디폴트 하기
+오늘날의 ES6 문법에선 디폴트 인수기능이 있습니다. 이기능을 오래된 브라우저들에서 실행시키기 위해서는 두번째 매개변수로 사용될 디폴트 값을 포함시키서 `||` 연산자를 사용 할 수 있습니다.
+만약 첫번째 매개변수가 `false`를 반환한다면 두번째 매개변수는 디폴트 값가 될 것 입니다.
+```
+
 function User(name, age) {
     this.name = name || "Oliver Queen";
     this.age = age || 27;
 }
+
+
 var user1 = new User();
 console.log(user1.name); // Oliver Queen
 console.log(user1.age); // 27
 var user2 = new User("Barry Allen", 25);
 console.log(user2.name); // Barry Allen
 console.log(user2.age); // 25
-5. Caching the array.length in the Loop
-This tip is very simple and causes a huge impact on performance when processing large arrays during a loop. Basically, almost everybody writes this synchronously to iterate an array:
+
+```
+
+
+### 5. Caching the array.length in the Loop `array.length`를 반복문에 캐싱하기
+
+반복문 안에서 규모가 큰 배열을 처리 할 때 성능에 강력한 영향을 미치는 아주 간단한 팁입니다. 
+기본적으로, 거의 모두가 동시에 배열을 반복하기 위해  아래 코드를 작성 할 것 입니다.
+
+```
 for(var i = 0; i < array.length; i++) {
     console.log(array[i]);
 }
-If you work with smaller arrays, it’s fine, but if you process large arrays, this code will recalculate the size of an array in every iteration of this loop and this will cause some delays.
-To avoid it, you can cache the array.length in a variable to use it, instead of invoking the array.length every time during the loop:
+
+```
+만약 크기가 작은 배열에서는 문제가 없습니다. 그러나, 크기가 큰 배열 에선 위의 코드는 반복문을 반목 할 때마다 배열의 크기를 다시 계산 할 것입니다. 이는 지연을 발생 시킵니다. 
+
+
+반목분 안에서 매번 `array.length`를 호출 하는 대신에  `array.length`를 사용할 변수안에 캐싱 하여 이를 피할 수 있습니다. 
+
+```
 var length = array.length;
 for(var i = 0; i < length; i++) {
     console.log(array[i]);
 }
-To make it smaller, just write this code:
+```
+
+  간소화를 위해 아래와 같은 코드를 작성합니다.
+
+```
 for(var i = 0, length = array.length; i < length; i++) {
     console.log(array[i]);
 }
-6. Getting the Last Item in the Array
-The Array.prototype.slice(begin, end) has the power to cut arrays when you set the beginning and end arguments. But, if you don’t set the end argument, this function will automatically set the max value for the array.
-I think that few people know that this function can accept negative values, and if you set a negative number as the beginning argument, you will get the last elements from the array:
+```
+
+### 6. Getting the Last Item in the Array 배열의 마지막 아이템 가져오기
+`Array.prototype.slice(begin, end)`는 시작 과 끝의 인수를 설정 하였다면 배열을 자를 수 있습니다. 그러나 인수를 설정 하지 않았을 경우 위 함수는 자동적으로 배열의 최대값을 설정 할 것 입니다. 
+
+
+몇몇 사람들은 위의 함수가 마이너스 값도 받을 수 있다고 생각합니다. 만약 마이너스 숫자를 시작 인수로 설정 한다면 배열의 가장 마지막 인수를 배열을 통해 얻을 수 있습니다.
+
+```
 var array = [1,2,3,4,5,6];
 console.log(array.slice(-1)); // [6]
 console.log(array.slice(-2)); // [5,6]
 console.log(array.slice(-3)); // [4,5,6]
-7. Truncating Array
-This technique can lock the array’s size, this is very useful to delete some elements from the array based on the number of elements you want to set.
-For example, if you have an array with 10 elements but you want to get only the first five elements, you can truncate the array, making it smaller by setting the array.length = 5. See this example:
+```
+### 7. Truncating Array 배열의 크기 줄이기
+
+이 테크닉은 배열의 크기를 조정 할 수 있습니다, 이는 원하는 숫자 만큼의 배열의 원소를 삭제 하는데 아주 유용합니다.
+
+
+예를 들면 만약 10개의 원소를 가진 배열이 있는데 5번째 까지의 원소만 필요하다면 `array.length = 5`를 설정하여 배열의 크기를 작게 조정 할 수 있습니다.
+```
+
 var array = [1,2,3,4,5,6];
 console.log(array.length); // 6
 array.length = 3;
 console.log(array.length); // 3
 console.log(array); // [1,2,3]
-8. Replace All
-The String.replace() function allows you to use string and regex to replace strings; natively, this function only replaces the first occurrence. But you can simulate a replaceAll() function by using the /g at the end of a Regex:
+```
+
+
+### 8. Replace All 전체 바꾸기
+
+String.replace() 함수는 문자열과 정규 표현식을 사용하여 문자열들을 대체 가능 합니다. 원래 이 함수는 오직 첫번째 상황만 치환하지만  `regex`의 끝에 `/g`를 사용함으로써 `replaceAll()`함수처럼 보이게 할 수 있습니다.
+
+```
 var string = "john john";
 console.log(string.replace(/hn/, "ana")); // "joana john"
 console.log(string.replace(/hn/g, "ana")); // "joana joana"
-9. Converting NodeList to Arrays
-If you run the document.querySelectorAll("p") function, it will probably return an array of DOM elements, the NodeList object. But this object doesn’t have all the array’s functions, like: sort(), reduce(), map(), filter().
-To enable these and many other native array functions, you need to convert NodeList into Arrays. To run this technique, just use this function: [].slice.call(elements):
+```
+
+
+### 9. Converting NodeList to Arrays NodeList를 배열로 변환하기
+만약 `document.querySelectorAll("p")` 를 사용 한다면 DOM elements(`NodeList`객체)를 반환 할 것입니다. 허나 객체는 모든 배열의 함수를 가지지 않습니다. 예를 들면 : `sort()` `reduce()` , `map()` , `filter()`
+
+
+위와 같은 함수들과 다른 네이티브 배열 함수를 사용하기 위해서는 `NodeList`를 `Arrays`로 변환 해야 합니다. 이 테크닉을 사용하기 위해서는 `[].slice.call(elements)` 함수를 사용하십시오.
+
+```
 var elements = document.querySelectorAll("p"); // NodeList
 var arrayElements = [].slice.call(elements); // Now the NodeList is an array
-// This is another way of converting NodeList to Arrayvar arrayElements = Array.from(elements);
-10. Merging Arrays
-If you need to merge two arrays, you can use the Array.concat() function:
+
+// This is another way of converting NodeList to Array
+
+var arrayElements = Array.from(elements);
+```
+
+
+### 10. Merging Arrays 배열 병합하기 
+
+만약 두개의 배열을 합치고 싶다면 `Array.concat()`함수를 사용 할 수 있습니다.
+
+```
 var array1 = [1,2,3];
 var array2 = [4,5,6];
 console.log(array1.concat(array2)); // [1,2,3,4,5,6];
-However, this function is not the most suitable to merge large arrays because it will consume a lot of memory by creating a new array.
-In this case, you can use Array.push.apply(arr1, arr2), which instead creates a new array. It will merge the second array into the first one, reducing memory usage:
+```
+
+그러나, 위 함수는 규모가 큰 배열들을 병합하는데는 알맞지 않습니다. 이는 새로운 배열을 만들어 많은 메모리를 사용 할 것입니다.
+
+
+이러한 경우엔 새로운 배열을 만드는 대신에`Array.push.apply(arr1, arr2)`를 사용 할 수 있습니다. 이는 두번째 배열을 첫번째 배열에 합칠 것이며 메모리 소모를 줄입니다.
+
+
+```
 var array1 = [1,2,3];
 var array2 = [4,5,6];
 console.log(array1.push.apply(array1, array2)); // [1,2,3,4,5,6];
-11. Shuffling an Array’s Elements
-To shuffle an array’s elements without using an external library like Lodash, just run this magic trick:
+```
+
+
+### 11.  Shuffling an Array’s Elements 배열의 원소 섞기
+
+`Lodash`와 같은 외부 라이브러리 없이 배열의 원소들을 섞기 위해서는 그냥 이 매직트릭을 동작 하세요!
+
+
+```
 var list = [1,2,3];
 console.log(list.sort(function() { Math.random() - 0.5 })); // [2,1,3]
-Resource : JavaScript Tips
+```
+
+
+WRITTEN BY
+[Javascript Jeep🚙💨](https://medium.com/@jagathishsaravanan)
+
+TRANSLATED BY
+[koDaegon](https://kodaegon.github.io)
