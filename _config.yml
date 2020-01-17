@@ -103,12 +103,6 @@ author:
   location         : "Seoul, South Korea"
   email            : "ko.daegonkim@gmail.com"
   links:
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
-      url: mailto:ko.daegonkim@gmail.com
-    - label: "Website"
-      icon: "fas fa-fw fa-link"
-      # url: "https://your-website.com"
     - label: "Facebook"
       icon: "fab fa-fw fa-facebook-square"
       url: "https://www.facebook.com/daegon.kim.9?ref=bookmarks"
