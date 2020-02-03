@@ -55,7 +55,7 @@ console.log(emptyAccount.hasMoney); // false
 
 
 
-### 2.  +연산자를 이용해서 숫자로 변환하기
+### 2. +연산자를 이용해서 숫자로 변환하기
 
 이 마법은 환상적이며 매우 간단히 구현 할 수 있지만 숫자로 된 문자열 에서만 동작 합니다. 다른 경우엔 `NaN`을 반환합니다.(숫자가 아닌경우) 예제를 보겠습니다.
 
@@ -72,7 +72,7 @@ console.log(+new Date()) // 1461288164385
 
 ```
 
-### 3. Short-Circuit Conditionals 
+### 3. 짧은 조건문 
 
 만약 아래와 비슷한 코드에선,
 
@@ -94,7 +94,7 @@ connected && login();
 user && user.login();
 ```
 
-### 4. Default Values Using the || Operator ||연산자를 이용해서 변수값을 디폴트 하기
+### 4. ||연산자를 이용해서 변수값을 디폴트 하기
 오늘날의 ES6 문법에선 디폴트 인수기능이 있습니다. 이기능을 오래된 브라우저들에서 실행시키기 위해서는 두번째 매개변수로 사용될 디폴트 값을 포함시키서 `||` 연산자를 사용 할 수 있습니다.
 만약 첫번째 매개변수가 `false`를 반환한다면 두번째 매개변수는 디폴트 값가 될 것 입니다.
 ```
@@ -115,7 +115,7 @@ console.log(user2.age); // 25
 ```
 
 
-### 5. Caching the array.length in the Loop `array.length`를 반복문에 캐싱하기
+### 5. `array.length`를 반복문에 캐싱하기
 
 반복문 안에서 규모가 큰 배열을 처리 할 때 성능에 강력한 영향을 미치는 아주 간단한 팁입니다. 
 기본적으로, 거의 모두가 동시에 배열을 반복하기 위해  아래 코드를 작성 할 것 입니다.
@@ -146,7 +146,7 @@ for(var i = 0, length = array.length; i < length; i++) {
 }
 ```
 
-### 6. Getting the Last Item in the Array 배열의 마지막 아이템 가져오기
+### 6. 배열의 마지막 아이템 가져오기
 `Array.prototype.slice(begin, end)`는 시작 과 끝의 인수를 설정 하였다면 배열을 자를 수 있습니다. 그러나 인수를 설정 하지 않았을 경우 위 함수는 자동적으로 배열의 최대값을 설정 할 것 입니다. 
 
 
@@ -158,7 +158,7 @@ console.log(array.slice(-1)); // [6]
 console.log(array.slice(-2)); // [5,6]
 console.log(array.slice(-3)); // [4,5,6]
 ```
-### 7. Truncating Array 배열의 크기 줄이기
+### 7. 배열의 크기 줄이기
 
 이 테크닉은 배열의 크기를 조정 할 수 있습니다, 이는 원하는 숫자 만큼의 배열의 원소를 삭제 하는데 아주 유용합니다.
 
@@ -174,7 +174,7 @@ console.log(array); // [1,2,3]
 ```
 
 
-### 8. Replace All 전체 바꾸기
+### 8. 전체 바꾸기
 
 String.replace() 함수는 문자열과 정규 표현식을 사용하여 문자열들을 대체 가능 합니다. 원래 이 함수는 오직 첫번째 상황만 치환하지만  `regex`의 끝에 `/g`를 사용함으로써 `replaceAll()`함수처럼 보이게 할 수 있습니다.
 
@@ -185,7 +185,7 @@ console.log(string.replace(/hn/g, "ana")); // "joana joana"
 ```
 
 
-### 9. Converting NodeList to Arrays NodeList를 배열로 변환하기
+### 9. NodeList를 배열로 변환하기
 만약 `document.querySelectorAll("p")` 를 사용 한다면 DOM elements(`NodeList`객체)를 반환 할 것입니다. 허나 객체는 모든 배열의 함수를 가지지 않습니다. 예를 들면 : `sort()` `reduce()` , `map()` , `filter()`
 
 
@@ -201,7 +201,7 @@ var arrayElements = Array.from(elements);
 ```
 
 
-### 10. Merging Arrays 배열 병합하기 
+### 10. 배열 병합하기 
 
 만약 두개의 배열을 합치고 싶다면 `Array.concat()`함수를 사용 할 수 있습니다.
 
@@ -224,7 +224,7 @@ console.log(array1.push.apply(array1, array2)); // [1,2,3,4,5,6];
 ```
 
 
-### 11.  Shuffling an Array’s Elements 배열의 원소 섞기
+### 11. 배열의 원소 섞기
 
 `Lodash`와 같은 외부 라이브러리 없이 배열의 원소들을 섞기 위해서는 그냥 이 매직트릭을 동작 하세요!
 
