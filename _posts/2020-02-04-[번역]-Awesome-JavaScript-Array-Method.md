@@ -16,6 +16,7 @@ defaults:
 # Awesome JavaScript array methods
 
 origin : https://jilles.me/awesome-javascript-array-methods/
+
 만약 자바스크립트를 프로그래밍 한다면, 아마도 배열을 많이 사용할 것 입니다. 이 포스트 에서는 몇가지 가장 즐겨쓰는 배열 메소드를 소개하고자 합니다. 모든 예제들은 아래의 배열을 사용 하게 될 것입니다.
 
 ```js
@@ -39,8 +40,8 @@ var users = [
 ```
 
 ## #1 array.forEach(fn, index)
-This is one of the most well-known array methods in JavaScript. It has some advantages over a simple `for` loop.
-자바스크립트에서 가장 잘 알려진 배열 메소드 입니다. 이는 간단한 `for`문 보다는 몇 가지 이점이 있습니다.
+
+이는 자바스크립트에서 가장 잘 알려진 배열 메소드 입니다. 간단한 `for`문 보다는 몇 가지 이점이 있습니다.
 
 `arr.forEach()`는 함수를 첫번째 매개변수로 가지며 현재 인덱스 값을 두번째 매개변수로 가집니다. 반면에 `for`문은 만들지 못하는 새로운 스코프 또한 만듭니다. 
 
@@ -51,7 +52,6 @@ users.forEach(function (user, i) {
 });
 ```
 
-This will log the names and that's it. If you however use a for loop you create 2 variables that are accessible outside of the for loop.
 로그상에서 이름을 출력 할 것 입니다. 끝입니다! 그런데, 만약 `for`반복문을 사용하면 반복문 밖에서 접근이 가능한 2가지 변수를 생성합니다.
 ```js
 for (var i = 0; i < users.length; i++) {
@@ -67,7 +67,6 @@ for (var i = 0; i < users.length; i++) {
 ## #2 array.map(fn)
 
 `Array.map`은 유용한 함수 입니다. 배열을 통해 반복을 하는데 (forEach와 마찬가지로) 반환된 아이템을 가지고 새로운 배열을 생성합니다. 
-If we would like to add an id to our list of users we could do so easily with the use of `map`.
 만약 id를 유저리스트에 추가 하고자 한다면 간단히 `map`을 사용하여 해결 할 수 있습니다.
 
 ```js
@@ -78,10 +77,9 @@ var usersDb = users.map(function (user, index) {
 console.table(usersDb);
 ```
 출력결과는 아래와 같습니다.
-
+![image](https://user-images.githubusercontent.com/47220755/73755867-09a45b00-47aa-11ea-9225-05d85964feae.png)
 
 ## #3 array.filter(fn)
- is like a bit like map. It also creates a new array but only containing the items where the function returns true.
 `Array.filter`은 `map`과 약간 비슷합니다. 새로운 배열을 생성하지만 오직 함수의 반환 값이 `true`인 아이템만 포함합니다.
 
 ```js
@@ -91,16 +89,17 @@ var guys = users.filter(function (user) {
 console.table(guys);
 ```
 
+![image](https://user-images.githubusercontent.com/47220755/73755927-22147580-47aa-11ea-94af-738c11f73f1a.png)
+
+
 최근에는 간단히 한줄로 배열에서 숫자가 아닌 문자열을 제거하는데 사용하였습니다. `[1, 2, 3, 'banana', 4, {}].filter(Number)`는  `[1, 2, 3, 4]`반환합니다.
 
 ## #4 array.reduce(fn, startingValue)
-A lot of people think reduce is complicated or hard, I thought so too until I took the time and found out that it's actually an awesome (and easy) method.
-많은사람들은 `reduce`가 복잡하고 어렵다 생각하는데  실제로는 굉장하고 쉬운 메소드라는 것을 시간을 가지고 알기 전 까지는 저도 마찬가지라고 생각 했었습니다.
 
-You want to use reduce when you want to "reduce" your array into a single value, this can be a number, object or even a string.
+많은사람들은 `reduce`가 복잡하고 어렵다 생각하는데  실제로는 굉장하고 쉬운 메소드라는 것을 알기 전 까지는 저도 마찬가지라고 생각 했었습니다.
+
 배열을 한개의 변수로(숫자가 될 수도 있고 객체 심지어 문자열이 될 수도 있습니다.) "reduce" 하고 싶을 때 `reduce`를 사용하길 원 할 것입니다.
 
-The first argument is a function that takes 4 arguments, the last two are optional.
 첫번째 인수는 4가지의 인수를 가진 함수인데, 마지막 2개는 선택사항 입니다. 
   - previousValue - 다음 반복에서의 이전 변수, 첫번째에서는 시작 변수가 됩니다.
   - currentValue - 반복하고 있는 배열의 현재 항목
@@ -120,7 +119,7 @@ console.log(namesList); // Jilles, Justin, Miley.
 ```
 
 ## #5 array.every(fn)
-The last one is pretty uncommon but really handy. It's like kind of filter but returns a boolean rather than an array.
+
 마지막을 아주 흔하진 않지만 유용합니다. `filter`와 비슷하지만 `boolean`을 배열에 반환합니다.
 
 ```js
