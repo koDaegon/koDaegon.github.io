@@ -16,7 +16,7 @@ defaults:
 # Awesome JavaScript array methods
 
 
-origin : [https://jilles.me/awesome-javascript-array-methods/]([https://jilles.me/awesome-javascript-array-methods/)
+origin : https://jilles.me/awesome-javascript-array-methods/](https://jilles.me/awesome-javascript-array-methods/)
 
 
 만약 자바스크립트를 프로그래밍 한다면, 아마도 배열을 많이 사용할 것 입니다. 이 포스트 에서는 몇가지 가장 즐겨쓰는 배열 메소드를 소개하고자 합니다. 모든 예제들은 아래의 배열을 사용 하게 될 것입니다.
